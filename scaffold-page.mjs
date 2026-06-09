@@ -111,6 +111,44 @@ function fixExternalScripts(html) {
   return html.replace(/<script\s+src/gi, '<script is:inline src');
 }
 
+// ─── Icon library detector ────────────────────────────────────────────────────
+// Escaneia o HTML em busca de classes de ícones e retorna os <link> CDN corretos.
+// Bibliotecas detectadas: Font Awesome 6, Line Awesome, Bootstrap Icons, Simple Line Icons.
+
+function detectIconLibraries(html) {
+  const links = [];
+
+  // Font Awesome 6 Free — classes: fa-solid, fa-regular, fa-brands, fa-*
+  if (/\bfa-(solid|regular|brands|thin|duotone|\w+-fa|[a-z-]+)\b/.test(html) || /class=["'][^"']*\bfa-\w/.test(html)) {
+    links.push(
+      `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W==" crossorigin="anonymous" referrerpolicy="no-referrer" />`
+    );
+  }
+
+  // Line Awesome — classes: la-*, las, lar, lab, lal, lad
+  if (/class=["'][^"']*\b(la-\w|las\b|lar\b|lab\b)/.test(html)) {
+    links.push(
+      `<link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />`
+    );
+  }
+
+  // Bootstrap Icons — classes: bi-*
+  if (/class=["'][^"']*\bbi-\w/.test(html)) {
+    links.push(
+      `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />`
+    );
+  }
+
+  // Simple Line Icons — classes: icon-*
+  if (/class=["'][^"']*\bicon-[a-z]/.test(html)) {
+    links.push(
+      `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css" />`
+    );
+  }
+
+  return links;
+}
+
 // ─── Indentation helper ───────────────────────────────────────────────────────
 
 function getIndentAt(str, pos) {
@@ -132,11 +170,15 @@ function replaceImages(html) {
     const cls = (attrs.match(/\bclass=["']([^"']*)["']/) || [])[1];
     const style = (attrs.match(/\bstyle=["']([^"']*)["']/) || [])[1];
 
+    const srcMatch = attrs.match(/\bsrc=["']([^"']*)["']/);
+    const originalSrc = srcMatch ? srcMatch[1] : '';
+    const imgFilename = originalSrc ? path.basename(originalSrc).split('?')[0] : 'placeholder.jpg';
+
     hasImg = true;
     const isPriority = imgCount === 0;
     imgCount++;
 
-    let props = `src="/images/placeholder.jpg" alt="${alt}"`;
+    let props = `src="${imgFilename}" alt="${alt}"`;
     if (widthStr) props += ` width={${widthStr}}`;
     if (heightStr) props += ` height={${heightStr}}`;
     if (cls) props += ` class="${cls}"`;
@@ -399,6 +441,9 @@ files.forEach(filename => {
 
     const hasStaticMap = body.includes('<StaticMap ') || body.includes("maps.google.com/maps/embed");
 
+    // Detecção automática de bibliotecas de ícones
+    const iconLinks = detectIconLibraries(body);
+
     const imports = [
       `import Base from '../layouts/Base.astro';`,
       `import config from '../../config.json';`,
@@ -416,13 +461,23 @@ files.forEach(filename => {
     if (meta.canonical) baseOpen += `\n  canonical="${meta.canonical}"`;
     baseOpen += `\n>`;
 
+    // Bloco de head com CDNs de ícones detectados automaticamente
+    const headSlot = iconLinks.length > 0
+      ? `\n<Fragment slot="head">\n${iconLinks.map(l => `  ${l}`).join('\n')}\n</Fragment>`
+      : '';
+
     const pageScriptBlock = hasJs
       ? `\n<script>\n  import '../scripts/${baseName}.js';\n</script>`
       : '';
 
+    // Adiciona import de Fragment se necessário
+    if (iconLinks.length > 0 && !imports.includes(`import { Fragment } from 'astro/jsx-runtime';`)) {
+      imports.unshift(`import { Fragment } from 'astro/jsx-runtime';`);
+    }
+
     const finalAstro =
       `---\n// Gerado a partir de: ${filename}\n${imports.join('\n')}\n---\n\n` +
-      `${baseOpen}\n${body}\n</Base>${pageScriptBlock}\n`;
+      `${baseOpen}${headSlot}\n${body}\n</Base>${pageScriptBlock}\n`;
 
     fs.writeFileSync(destAstroFile, finalAstro, 'utf8');
 

@@ -1,0 +1,811 @@
+/* ==========================================================================
+   CSS Scoped — /casamentos-v2 (Naturalle Eventos)
+   ========================================================================== */
+
+/* --- 1. Fontes Customizadas --- */
+@font-face {
+  font-family: 'Beyond Infinity';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url('/fonts/Beyond-Infinity-Atualizada.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Bebas';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url('/fonts/bebas-neue-pro-expanded-bold.ttf') format('truetype');
+}
+
+/* --- 2. Container Principal --- */
+.casamentos-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #01312F;
+  overflow-x: hidden;
+}
+
+/* Text Accent (Handwriting Font) */
+.accent-text {
+  font-family: 'Beyond Infinity', cursive, sans-serif;
+  font-weight: 400;
+  color: #C35125;
+  text-transform: none;
+  display: block;
+}
+
+.mobile-only {
+  display: none !important;
+}
+
+/* --- 3. Seção 1: Hero / Header --- */
+.casamentos-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('../assets/images/PTF-155-scaled.avif') no-repeat center center / cover;
+  padding: 40px 20px;
+}
+
+.hero-inner {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.casamentos-hero .logo-wrapper {
+  max-width: 180px;
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.casamentos-hero .logo {
+  width: 100%;
+  height: auto;
+}
+
+.hero-content {
+  max-width: 650px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.hero-subtitle {
+  font-family: 'Beyond Infinity', cursive, sans-serif;
+  font-size: 48px;
+  color: #C35125;
+  line-height: 1.1;
+}
+
+.hero-title {
+  font-family: 'Bebas', sans-serif;
+  font-size: 55px;
+  font-weight: 400;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.hero-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  color: #FFFFFF;
+  line-height: 1.6;
+}
+
+.hero-btn {
+  display: inline-block;
+  background-color: transparent;
+  color: #FFFFFF;
+  border: 2px solid #FFFFFF;
+  padding: 12px 30px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.hero-btn:hover {
+  background-color: #FFFFFF;
+  color: #01312F;
+}
+
+/* --- 4. Seção 2: Conceito --- */
+.casamentos-concept {
+  background-color: #01312F;
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.concept-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.concept-title {
+  font-family: 'Bebas', sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.concept-title .accent-text {
+  font-size: 64px;
+  margin-top: 5px;
+}
+
+.concept-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: #CBD5E1;
+  line-height: 1.8;
+}
+
+/* --- 5. Seção 3: Spacer Decorativo --- */
+.casamentos-spacer-section {
+  min-height: 400px;
+  background: url('../assets/images/PTF-392-1-scaled.avif') no-repeat center center / cover;
+  position: relative;
+}
+
+@media (min-width: 1025px) {
+  .casamentos-spacer-section {
+    background-attachment: fixed;
+  }
+}
+
+/* --- 6. Seções de Galeria (Marquee GSAP) --- */
+.casamentos-gallery-section {
+  background-color: #FFFFFF;
+  position: relative;
+  padding: 80px 0 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.casamentos-gallery-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../assets/images/naturalle-eventos-pattern.avif') no-repeat center center / cover;
+  opacity: 1;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.gallery-header {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 20px;
+  margin-bottom: 40px;
+}
+
+.gallery-title {
+  font-family: 'Bebas', sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  color: #01312F;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.gallery-title .accent-text {
+  font-size: 64px;
+}
+
+.gallery-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: #475569;
+  line-height: 1.6;
+  margin-top: 15px;
+}
+
+/* GSAP Marquee Layout */
+.gsap-marquee-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  overflow: hidden;
+  cursor: grab;
+}
+
+.gsap-marquee-container:active {
+  cursor: grabbing;
+}
+
+.gsap-marquee-wrapper {
+  display: flex;
+  width: max-content;
+}
+
+.gsap-marquee-slide {
+  flex-shrink: 0;
+  width: 25vw; /* Desktop: mostra 4 fotos por vez */
+  aspect-ratio: 1/1;
+  overflow: hidden;
+}
+
+.gsap-marquee-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* --- 7. Seção 7: Diferenciais (Features) --- */
+.casamentos-features-section {
+  background-color: #FFFFFF;
+  position: relative;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.casamentos-features-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../assets/images/naturalle-eventos-pattern.avif') no-repeat center center / cover;
+  opacity: 1;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.features-header {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  margin-bottom: 50px;
+}
+
+.features-title {
+  font-family: 'Bebas', sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  color: #01312F;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.features-title .accent-text {
+  font-size: 64px;
+}
+
+.features-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: #475569;
+  line-height: 1.6;
+  margin-top: 15px;
+}
+
+.features-grid {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1140px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px 30px;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 15px;
+}
+
+.feature-icon-wrapper {
+  color: #C35125;
+  font-size: 36px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-item-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #01312F;
+}
+
+/* --- 8. Seção 8: Testimonials / Collage --- */
+.casamentos-testimonials-section {
+  background-color: #01312F;
+  position: relative;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.casamentos-testimonials-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../assets/images/naturalle-eventos-pattern.avif') no-repeat center center / cover;
+  opacity: 0.02;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.testimonials-header {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  margin-bottom: 50px;
+}
+
+.testimonials-title {
+  font-family: 'Bebas', sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.testimonials-title .accent-text {
+  font-size: 64px;
+}
+
+.testimonials-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: #CBD5E1;
+  line-height: 1.6;
+  margin-top: 15px;
+}
+
+/* Collage / Mosaico Justificado de Imagens Reais */
+.testimonials-gallery {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 1140px;
+}
+
+.gallery-row {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+}
+
+.gallery-row .gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  flex-grow: var(--grow, 1);
+  flex-basis: calc(380px * var(--grow, 1));
+  height: 380px;
+}
+
+.gallery-row .gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  display: block;
+}
+
+.gallery-row .gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* --- 9. Seção 9: Contato (Contact Form) --- */
+.casamentos-contact-section {
+  background-color: #01312F;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-container {
+  width: 100%;
+  max-width: 1140px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-title {
+  font-family: 'Bebas', sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.contact-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: #CBD5E1;
+  line-height: 1.8;
+}
+
+/* Black Card Form Theme */
+.contact-form-card {
+  background-color: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.contact-form-card .form-title {
+  font-family: 'Bebas', sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+  line-height: 1.1;
+  text-align: center;
+}
+
+/* Customizações do LeadForm dentro do formulário casamentos */
+.contact-form-card :global(.lead-form) {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-form-card :global(.lead-form-grid) {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.contact-form-card :global(.form-group) {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form-card :global(.form-group label) {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #FFFFFF;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.contact-form-card :global(.form-input),
+.contact-form-card :global(.form-select),
+.contact-form-card :global(.form-textarea) {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  padding: 12px 15px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  color: #FFFFFF;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.contact-form-card :global(.form-input::placeholder),
+.contact-form-card :global(.form-textarea::placeholder) {
+  color: #FFFFFF;
+  opacity: 1; /* Previne efeito faded do navegador */
+}
+
+.contact-form-card :global(.form-input:focus),
+.contact-form-card :global(.form-select:focus),
+.contact-form-card :global(.form-textarea:focus) {
+  border-color: #54CA6E;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.contact-form-card :global(.btn-primary) {
+  width: 100%;
+  background-color: #54CA6E;
+  color: #FFFFFF;
+  border: none;
+  padding: 14px;
+  border-radius: 4px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.contact-form-card :global(.btn-primary:hover) {
+  background-color: #43b55c;
+}
+
+/* --- 10. Seção 10: Rodapé (Footer) --- */
+.casamentos-footer {
+  background-color: #012826;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-container {
+  width: 100%;
+  max-width: 1140px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-copy {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  color: #94A3B8;
+}
+
+.footer-logos {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.footer-logo-main {
+  height: 40px;
+  width: auto;
+}
+
+.footer-developer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  color: #94A3B8;
+  text-decoration: none;
+}
+
+.footer-logo-dev {
+  height: 18px;
+  width: auto;
+}
+
+/* --- 11. Media Queries (Responsividade) --- */
+@media (max-width: 1024px) {
+  .gallery-row .gallery-item {
+    height: 280px;
+    flex-basis: calc(280px * var(--grow, 1));
+  }
+}
+
+@media (max-width: 991px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .mobile-only {
+    display: inline !important;
+  }
+
+  /* Hero */
+  .casamentos-hero {
+    min-height: 80vh;
+    padding: 60px 20px;
+    background-position: 80% center;
+    text-align: center;
+  }
+  .hero-inner {
+    align-items: center;
+    text-align: center;
+  }
+  .hero-content {
+    align-items: center;
+    text-align: center;
+  }
+  .hero-btn {
+    align-self: center;
+  }
+  .hero-subtitle {
+    font-size: 38px;
+  }
+  .hero-title {
+    font-size: 30px;
+  }
+  .hero-desc {
+    font-size: 16px;
+  }
+
+  /* Concept */
+  .concept-title {
+    font-size: 30px;
+  }
+  .concept-title .accent-text {
+    font-size: 56px;
+  }
+  .concept-desc {
+    font-size: 15px;
+  }
+
+  /* Marquee Galleries */
+  .gallery-title {
+    font-size: 30px;
+  }
+  .gallery-title .accent-text {
+    font-size: 56px;
+  }
+  .gallery-desc {
+    font-size: 15px;
+    margin-bottom: 25px;
+  }
+  .casamentos-gallery-section .gsap-marquee-slide {
+    width: 100vw;
+  }
+
+  /* Diferenciais */
+  .features-title {
+    font-size: 30px;
+  }
+  .features-title .accent-text {
+    font-size: 56px;
+  }
+  .features-desc {
+    font-size: 15px;
+    margin-bottom: 35px;
+  }
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 15px;
+  }
+
+  /* Testimonials Collage */
+  .testimonials-title {
+    font-size: 30px;
+  }
+  .testimonials-title .accent-text {
+    font-size: 56px;
+    line-height: 0.85;
+    margin-top: 15px;
+  }
+  .testimonials-desc {
+    font-size: 15px;
+    margin-bottom: 25px;
+  }
+  .testimonials-gallery {
+    gap: 8px;
+  }
+  .gallery-row {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .gallery-row .gallery-item {
+    height: 200px;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+
+  /* Row 1 test-gallery mobile widths */
+  .testimonials-gallery .gallery-row:nth-child(1) .gallery-item:nth-child(1),
+  .testimonials-gallery .gallery-row:nth-child(1) .gallery-item:nth-child(2) {
+    width: calc(50% - 4px);
+    flex-basis: calc(50% - 4px);
+  }
+  .testimonials-gallery .gallery-row:nth-child(1) .gallery-item:nth-child(3) {
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  /* Row 2 test-gallery mobile widths */
+  .testimonials-gallery .gallery-row:nth-child(2) .gallery-item:nth-child(1) {
+    width: calc(50% - 4px);
+    flex-basis: calc(50% - 4px);
+    order: 1;
+  }
+  .testimonials-gallery .gallery-row:nth-child(2) .gallery-item:nth-child(3) {
+    width: calc(50% - 4px);
+    flex-basis: calc(50% - 4px);
+    order: 2;
+  }
+  .testimonials-gallery .gallery-row:nth-child(2) .gallery-item:nth-child(2) {
+    width: 100%;
+    flex-basis: 100%;
+    order: 3;
+  }
+
+  /* Row 3 test-gallery mobile widths */
+  .testimonials-gallery .gallery-row:nth-child(3) .gallery-item {
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  /* Row 4 test-gallery mobile widths */
+  .testimonials-gallery .gallery-row:nth-child(4) .gallery-item:nth-child(1) {
+    width: 100%;
+    flex-basis: 100%;
+    order: 1;
+  }
+  .testimonials-gallery .gallery-row:nth-child(4) .gallery-item:nth-child(2) {
+    width: calc(50% - 4px);
+    flex-basis: calc(50% - 4px);
+    order: 2;
+  }
+  .testimonials-gallery .gallery-row:nth-child(4) .gallery-item:nth-child(3) {
+    width: calc(50% - 4px);
+    flex-basis: calc(50% - 4px);
+    order: 3;
+  }
+
+  /* Contact Form & Footer */
+  .contact-title {
+    font-size: 30px;
+  }
+  .contact-form-card {
+    padding: 25px 15px;
+  }
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 25px;
+  }
+  .footer-logos {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
