@@ -123,7 +123,9 @@ const groupCls  = (full?: boolean) => {
           <div class={cxRow}>
             {row.fields.map((f) => (
               <div class={groupCls(f.full)}>
-                {f.label && <label class={cxLabel} for={f.id ?? f.name}>{f.label}</label>}
+                <label class={f.label ? cxLabel : 'sr-only'} for={f.id ?? f.name}>
+                  {f.label || f.placeholder || f.name}
+                </label>
                 {f.type === 'select' ? (
                   <select class={cxSelect} name={f.name} id={f.id ?? f.name} required={f.required}>
                     {f.options?.map((opt) => (
@@ -164,7 +166,9 @@ const groupCls  = (full?: boolean) => {
 
       return (
         <div class={groupCls(f.full)}>
-          {f.label && <label class={cxLabel} for={f.id ?? f.name}>{f.label}</label>}
+          <label class={f.label ? cxLabel : 'sr-only'} for={f.id ?? f.name}>
+            {f.label || f.placeholder || f.name}
+          </label>
           {f.type === 'select' ? (
             <select class={cxSelect} name={f.name} id={f.id ?? f.name} required={f.required}>
               {f.options?.map((opt) => (

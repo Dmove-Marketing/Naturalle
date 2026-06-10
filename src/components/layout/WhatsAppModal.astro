@@ -57,7 +57,7 @@ const welcomeLines  = welcomeMessage.split('\n');
           </div>
           <div class="wa-details">
             <!-- Nome do cliente — configurar em config.json > whatsapp.display_name -->
-            <h4 class="wa-name">{waName}</h4>
+            <div class="wa-name">{waName}</div>
             <span class="wa-status">Online</span>
           </div>
         </div>
@@ -81,7 +81,7 @@ const welcomeLines  = welcomeMessage.split('\n');
           <!-- ETAPA 1: Dados do evento -->
           <div id="wa-step-1" class="wa-step active">
             <div class="wa-form-group">
-              <select name="tipo" id="wa-tipo" required class="wa-input">
+              <select name="tipo" id="wa-tipo" required class="wa-input" aria-label="Tipo de evento">
                 <option value="">Tipo de evento</option>
                 {eventTypes.map((opt) => (
                   <option value={opt.value}>{opt.label}</option>
@@ -93,9 +93,7 @@ const welcomeLines  = welcomeMessage.split('\n');
               <input type="text" name="data" id="wa-data" placeholder="Data do evento" required class="wa-input" readonly />
             </div>
 
-            <div class="wa-form-group">
-              <input type="text" name="local_evento" id="wa-local" placeholder="Espaço da Festa" required class="wa-input" />
-            </div>
+
 
             <div class="wa-form-group">
               <input type="number" name="convidados" id="wa-convidados" placeholder="Quantidade de convidados" required class="wa-input" min="1" />
@@ -300,17 +298,32 @@ const welcomeLines  = welcomeMessage.split('\n');
         : `WhatsApp ${window.location.pathname}`;
 
       const now = new Date();
+      const dateStr = now.toLocaleDateString('pt-BR');
+      const timeStr = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+
       const payload = {
-        ...capitalized,
-        Fonte:             fonte,
-        Data:              now.toLocaleDateString('pt-BR'),
-        'Horário':         now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }),
-        'URL da página':   window.location.href,
-        'Agente de usuário': navigator.userAgent,
-        'Desenvolvido por': 'Dmove',
+        "Nome": data.nome || "",
+        "WhatsApp": data.telefone || "",
+        "E-mail": data.email || "",
+        "Tipo de evento": data.tipo || "",
+        "Data do evento": data.data || "",
+        "Convidados": data.convidados || "",
+        "Mensagem": data.mensagem || "",
+        "Fonte":             fonte,
+        "Date":              dateStr,
+        "Time":              timeStr,
+        "Page URL":          window.location.href,
+        "User Agent":        navigator.userAgent,
+        "Remote IP":         "",
+        "Powered by":        "Elementor",
         form_id:           'form_whatsapp',
         form_name:         'form_whatsapp',
       };
+
+      if (tracking['fbc'])         payload['fbc']         = tracking['fbc'];
+      if (tracking['fbp'])         payload['fbp']         = tracking['fbp'];
+      if (tracking['external_id']) payload['external_id'] = tracking['external_id'];
+      if (tracking['event_id'])    payload['event_id']    = tracking['event_id'];
 
       try {
         if (webhookUrl) {
@@ -340,7 +353,6 @@ const welcomeLines  = welcomeMessage.split('\n');
         ``,
         `*Tipo:* ${data.tipo}`,
         `*Data:* ${data.data}`,
-        `*Local:* ${data.local_evento}`,
         `*Convidados:* ${data.convidados}`,
         `*Nome:* ${data.nome}`,
         `*E-mail:* ${data.email}`,

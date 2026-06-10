@@ -35,6 +35,8 @@
   color: #C35125;
   text-transform: none;
   display: block;
+  margin-top: 5px;
+  line-height: 1.1;
 }
 
 .mobile-only {
@@ -131,6 +133,18 @@
   padding: 80px 20px;
   text-align: center;
   position: relative;
+  overflow: hidden;
+}
+
+.casamentos-concept::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../assets/images/naturalle-eventos-pattern.avif') no-repeat center center / cover;
+  opacity: 0.02;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .concept-inner {
@@ -139,7 +153,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 12px;
+  position: relative;
+  z-index: 2;
 }
 
 .concept-title {
@@ -154,6 +170,7 @@
 .concept-title .accent-text {
   font-size: 64px;
   margin-top: 5px;
+  line-height: 1.1;
 }
 
 .concept-desc {
@@ -178,7 +195,6 @@
 
 /* --- 6. Seções de Galeria (Marquee GSAP) --- */
 .casamentos-gallery-section {
-  background-color: #FFFFFF;
   position: relative;
   padding: 80px 0 60px;
   display: flex;
@@ -187,7 +203,11 @@
   overflow: hidden;
 }
 
-.casamentos-gallery-section::before {
+/* Jardim (Default/White background) */
+.gallery-jardim {
+  background-color: #FFFFFF;
+}
+.gallery-jardim::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -196,6 +216,54 @@
   mix-blend-mode: multiply;
   pointer-events: none;
   z-index: 1;
+}
+
+/* Recepção (Dark Green background) */
+.gallery-recepcao {
+  background-color: #01312F;
+}
+.gallery-recepcao::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../assets/images/naturalle-eventos-pattern.avif') no-repeat center center / cover;
+  opacity: 0.02;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 1;
+}
+.gallery-recepcao .gallery-title {
+  color: #FFFFFF;
+}
+.gallery-recepcao .gallery-title .accent-text {
+  color: #C35125;
+}
+.gallery-recepcao .gallery-desc {
+  color: #CBD5E1;
+}
+
+/* Gastronomia (Terracota background) */
+.gallery-gastronomia {
+  background-color: #C35125;
+}
+.gallery-gastronomia::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../assets/images/naturalle-eventos-pattern.avif') no-repeat center center / cover;
+  opacity: 0.09;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 1;
+}
+.gallery-gastronomia .gallery-title {
+  color: #FFFFFF;
+}
+.gallery-gastronomia .gallery-title .accent-text {
+  color: #01312F;
+}
+.gallery-gastronomia .gallery-desc {
+  color: #FFFFFF;
 }
 
 .gallery-header {
@@ -225,7 +293,7 @@
   font-size: 16px;
   color: #475569;
   line-height: 1.6;
-  margin-top: 15px;
+  margin-top: 8px;
 }
 
 /* GSAP Marquee Layout */
@@ -308,7 +376,7 @@
   font-size: 16px;
   color: #475569;
   line-height: 1.6;
-  margin-top: 15px;
+  margin-top: 8px;
 }
 
 .features-grid {
@@ -347,7 +415,7 @@
 
 /* --- 8. Seção 8: Testimonials / Collage --- */
 .casamentos-testimonials-section {
-  background-color: #01312F;
+  background-color: #C35125; /* Terracota background */
   position: relative;
   padding: 80px 20px;
   display: flex;
@@ -361,10 +429,14 @@
   position: absolute;
   inset: 0;
   background: url('../assets/images/naturalle-eventos-pattern.avif') no-repeat center center / cover;
-  opacity: 0.02;
-  mix-blend-mode: multiply;
+  opacity: 0.09;
+  mix-blend-mode: screen;
   pointer-events: none;
   z-index: 1;
+}
+
+.casamentos-testimonials-section .accent-text {
+  color: #01312F; /* Dark green handwriting on terracota */
 }
 
 .testimonials-header {
@@ -393,7 +465,7 @@
   font-size: 16px;
   color: #CBD5E1;
   line-height: 1.6;
-  margin-top: 15px;
+  margin-top: 8px;
 }
 
 /* Collage / Mosaico Justificado de Imagens Reais */
@@ -437,13 +509,28 @@
 /* --- 9. Seção 9: Contato (Contact Form) --- */
 .casamentos-contact-section {
   background-color: #01312F;
+  position: relative;
   padding: 80px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
+}
+
+.casamentos-contact-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../assets/images/naturalle-eventos-pattern.avif') no-repeat center center / cover;
+  opacity: 0.02;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .contact-container {
+  position: relative;
+  z-index: 2;
   width: 100%;
   max-width: 1140px;
   display: grid;
@@ -476,43 +563,45 @@
 
 /* Black Card Form Theme */
 .contact-form-card {
-  background-color: #000000;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 40px;
-  border-radius: 8px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  background-color: #000000 !important;
+  border: none !important;
+  padding: 40px !important;
+  border-radius: 0px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
 }
 
 .contact-form-card .form-title {
   font-family: 'Bebas', sans-serif;
-  font-size: 32px;
+  font-size: 26px;
   font-weight: 400;
   color: #FFFFFF;
   text-transform: uppercase;
   margin-bottom: 25px;
-  line-height: 1.1;
+  line-height: 1.2;
   text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+  padding-bottom: 20px !important;
 }
 
 /* Customizações do LeadForm dentro do formulário casamentos */
-.contact-form-card :global(.lead-form) {
+.contact-form-card .lead-form {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.contact-form-card :global(.lead-form-grid) {
+.contact-form-card .lead-form-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 15px;
 }
 
-.contact-form-card :global(.form-group) {
+.contact-form-card .form-group {
   display: flex;
   flex-direction: column;
 }
 
-.contact-form-card :global(.form-group label) {
+.contact-form-card .form-group label {
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   font-weight: 500;
@@ -522,57 +611,90 @@
   letter-spacing: 0.5px;
 }
 
-.contact-form-card :global(.form-input),
-.contact-form-card :global(.form-select),
-.contact-form-card :global(.form-textarea) {
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
-  padding: 12px 15px;
+.contact-form-card .form-input,
+.contact-form-card .form-textarea {
+  width: 100% !important;
+  background-color: transparent !important;
+  border-width: 0px 0px 1px 0px !important;
+  border-style: solid !important;
+  border-color: #858474 !important;
+  border-radius: 0px !important;
+  padding: 12px 0px !important;
   font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  color: #FFFFFF;
-  outline: none;
-  transition: all 0.3s ease;
+  font-size: 16px !important;
+  color: #FFFFFF !important;
+  outline: none !important;
+  transition: all 0.3s ease !important;
 }
 
-.contact-form-card :global(.form-input::placeholder),
-.contact-form-card :global(.form-textarea::placeholder) {
-  color: #FFFFFF;
-  opacity: 1; /* Previne efeito faded do navegador */
-}
-
-.contact-form-card :global(.form-input:focus),
-.contact-form-card :global(.form-select:focus),
-.contact-form-card :global(.form-textarea:focus) {
-  border-color: #54CA6E;
-  background-color: rgba(255, 255, 255, 0.08);
-}
-
-.contact-form-card :global(.btn-primary) {
-  width: 100%;
-  background-color: #54CA6E;
-  color: #FFFFFF;
-  border: none;
-  padding: 14px;
-  border-radius: 4px;
+.contact-form-card .form-select {
+  width: 100% !important;
+  background-color: transparent !important;
+  border-width: 0px 0px 1px 0px !important;
+  border-style: solid !important;
+  border-color: #858474 !important;
+  border-radius: 0px !important;
+  padding: 12px 0px !important;
   font-family: 'Montserrat', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: background-color 0.3s ease;
-  margin-top: 10px;
+  font-size: 16px !important;
+  color: #FFFFFF !important;
+  outline: none !important;
+  transition: all 0.3s ease !important;
+  appearance: none !important;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 0px center !important;
+  background-size: 16px !important;
 }
 
-.contact-form-card :global(.btn-primary:hover) {
-  background-color: #43b55c;
+.contact-form-card .form-select option {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+}
+
+.contact-form-card .form-input::placeholder,
+.contact-form-card .form-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+  opacity: 1 !important;
+}
+
+.contact-form-card .form-input:focus,
+.contact-form-card .form-select:focus,
+.contact-form-card .form-textarea:focus {
+  border-color: #54CA6E !important;
+  background-color: transparent !important;
+}
+
+.contact-form-card button[type="submit"],
+.contact-form-card .btn-primary {
+  width: 100% !important;
+  background-color: #54CA6E !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  padding: 16px 0px !important;
+  border-radius: 80px !important;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  transition: background-color 0.3s ease !important;
+  margin-top: 15px !important;
+  display: block !important;
+}
+
+.contact-form-card button[type="submit"]:hover,
+.contact-form-card .btn-primary:hover {
+  background-color: #43b55c !important;
+}
+
+.contact-form-card .form-footer {
+  display: none !important;
 }
 
 /* --- 10. Seção 10: Rodapé (Footer) --- */
 .casamentos-footer {
-  background-color: #012826;
+  background-color: #232323;
   padding: 40px 20px;
   display: flex;
   flex-direction: column;
@@ -596,15 +718,21 @@
   color: #94A3B8;
 }
 
-.footer-logos {
+.footer-logo-center {
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 30px;
 }
 
 .footer-logo-main {
   height: 40px;
   width: auto;
+}
+
+.footer-developer-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .footer-developer {
@@ -721,8 +849,8 @@
   }
   .testimonials-title .accent-text {
     font-size: 56px;
-    line-height: 0.85;
-    margin-top: 15px;
+    line-height: 1.1;
+    margin-top: 5px;
   }
   .testimonials-desc {
     font-size: 15px;
@@ -799,13 +927,23 @@
   .contact-form-card {
     padding: 25px 15px;
   }
+  .contact-form-card .form-row {
+    grid-template-columns: 1fr !important;
+    gap: 15px !important;
+  }
   .footer-container {
     flex-direction: column;
     text-align: center;
     gap: 25px;
   }
-  .footer-logos {
-    flex-direction: column;
-    gap: 20px;
+  .footer-logo-center {
+    order: 2;
+  }
+  .footer-copy {
+    order: 1;
+  }
+  .footer-developer-wrapper {
+    order: 3;
+    justify-content: center;
   }
 }

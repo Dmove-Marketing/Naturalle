@@ -23,7 +23,7 @@ export function initForms() {
     const formId  = form.dataset.formId!;
     const project = form.dataset.project || window.location.hostname;
 
-    form.querySelectorAll<HTMLInputElement>('[name="telefone"]').forEach(applyPhoneMask);
+    form.querySelectorAll<HTMLInputElement>('input[name*="telefone"], input[name*="WhatsApp"]').forEach(applyPhoneMask);
 
     const submitUrl   = form.dataset.submitUrl;
     const redirectUrl = form.dataset.redirect;
@@ -111,14 +111,37 @@ export function initForms() {
       const dateStr = now.toLocaleDateString('pt-BR');
       const timeStr = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
 
-      const capitalizedFields: Record<string, string> = {};
-      let fonteBase = rawData['fonte'] || project;
+      // Normalização de chaves (ex: form_fields[nome] -> nome)
+      const normalizedData: Record<string, string> = {};
       Object.entries(rawData).forEach(([key, val]) => {
-        if (key === 'fonte') return;
-        const capKey = key.charAt(0).toUpperCase() + key.slice(1);
-        capitalizedFields[capKey] = val;
+        let cleanKey = key.toLowerCase();
+        const match = key.match(/form_fields\[([^\]]+)\]/i);
+        if (match) {
+          cleanKey = match[1].toLowerCase();
+        }
+        normalizedData[cleanKey] = val;
       });
 
+      // Define o form_name dinâmico com base na página
+      let formName = formId;
+      if (formId === 'lead-form') {
+        const path = window.location.pathname;
+        if (path.includes('casamentos')) {
+          formName = 'form_casamentos';
+        } else if (path.includes('eventos-corporativos')) {
+          formName = 'form_eventos_corporativos';
+        } else if (path.includes('bio')) {
+          formName = 'form_bio';
+        } else {
+          formName = 'form_landing';
+        }
+      } else if (formId === 'wa-multistep-form' || formId === 'form_whatsapp') {
+        formName = 'form_whatsapp';
+      } else if (!formName.startsWith('form_')) {
+        formName = `form_${formName}`;
+      }
+
+      let fonteBase = normalizedData['fonte'] || project;
       const trackingParamKeys = [
         'utm_source', 'utm_medium', 'utm_campaign', 'utm_term',
         'utm_content', 'utm_id', 'gclid', 'gbraid', 'wbraid',
@@ -129,26 +152,30 @@ export function initForms() {
       trackingParamKeys.forEach(k => { if (tracking[k]) qs.set(k, tracking[k]); });
       const fonte = qs.toString() ? `${fonteBase}?${qs.toString()}` : fonteBase;
 
-      // Campos Meta CAPI — enviados também como campos flat para uso direto no n8n
-      const metaCapi: Record<string, string> = {};
-      if (tracking['fbc'])         metaCapi['fbc']         = tracking['fbc'];
-      if (tracking['fbp'])         metaCapi['fbp']         = tracking['fbp'];
-      if (tracking['external_id']) metaCapi['external_id'] = tracking['external_id'];
-      if (tracking['event_id'])    metaCapi['event_id']    = tracking['event_id'];
-
       const payload: Record<string, string> = {
-        ...capitalizedFields,
-        Fonte: fonte,
-        Data: dateStr,
-        'Horário': timeStr,
-        'URL da página': window.location.href,
-        'Agente de usuário': navigator.userAgent,
-        'IP remoto': '',
-        'Desenvolvido por': 'Dmove',
-        form_id: formId,
-        form_name: formId,
-        ...metaCapi,
+        "Nome": normalizedData["nome"] || "",
+        "WhatsApp": normalizedData["telefone"] || normalizedData["whatsapp"] || "",
+        "E-mail": normalizedData["email"] || normalizedData["e-mail"] || "",
+        "Tipo de evento": normalizedData["tipo"] || normalizedData["tipo_evento"] || normalizedData["tipo de evento"] || "",
+        "Data do evento": normalizedData["data"] || normalizedData["data_evento"] || normalizedData["data do evento"] || "",
+        "Convidados": normalizedData["convidados"] || "",
+        "Mensagem": normalizedData["mensagem"] || "",
+        "Fonte": fonte,
+        "Date": dateStr,
+        "Time": timeStr,
+        "Page URL": window.location.href,
+        "User Agent": navigator.userAgent,
+        "Remote IP": "",
+        "Powered by": "Elementor",
+        "form_id": formId,
+        "form_name": formName,
       };
+
+      // Adiciona campos adicionais de tracking Meta CAPI se existirem
+      if (tracking['fbc'])         payload['fbc']         = tracking['fbc'];
+      if (tracking['fbp'])         payload['fbp']         = tracking['fbp'];
+      if (tracking['external_id']) payload['external_id'] = tracking['external_id'];
+      if (tracking['event_id'])    payload['event_id']    = tracking['event_id'];
 
       try {
         const res = await fetch(submitUrl, {
@@ -162,7 +189,7 @@ export function initForms() {
         let json: any = {};
         try { json = await res.json(); } catch {}
 
-        (window as any).dataLayer?.push({ event: 'form_submit', form_id: formId, project, ...capitalizedFields });
+        (window as any).dataLayer?.push({ event: 'form_submit', form_id: formId, project });
 
         const redir = redirectUrl || json.redirect;
         if (redir) {

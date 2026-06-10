@@ -10,12 +10,13 @@ import '../styles/bio.css';
 
 <Base
   title="BIO — Naturalle Eventos"
+  description="Conheça o Naturalle Eventos, o espaço ideal para o seu casamento ou evento corporativo em Goiânia. Solicite seu orçamento personalizado."
   ogImage="/images/og-default.jpg"
   canonical="https://eventos.naturalleeventos.com/bio/"
 >
   <Fragment slot="head">
-    <link rel="stylesheet" href="https://npmcdn.com/flatpickr/dist/flatpickr.min.css" />
-    <script is:inline src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+    <script is:inline src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   </Fragment>
 
   <main class="bio-container">
@@ -40,22 +41,22 @@ import '../styles/bio.css';
           </div>
           
           <LeadForm
-            formId="lead-form"
+            formId="form_bio"
             project={config.project_slug}
             submitUrl={config.forms['lead-form'].webhooks[0]}
             redirectUrl={config.forms['lead-form'].redirect_on_success}
             submitText="ENVIAR SOLICITAÇÃO"
             honeypot
             fields={[
-              { name: 'nome', type: 'text', placeholder: 'Nome', required: true },
+              { name: 'Nome', type: 'text', placeholder: 'Nome', required: true },
               {
                 type: 'row',
                 fields: [
-                  { name: 'telefone', type: 'text', placeholder: 'WhatsApp', required: true },
-                  { name: 'email', type: 'email', placeholder: 'E-mail', required: true }
+                  { name: 'WhatsApp', type: 'text', placeholder: 'WhatsApp', required: true },
+                  { name: 'E-mail', type: 'email', placeholder: 'E-mail', required: true }
                 ]
               },
-              { name: 'tipo', type: 'select', placeholder: '', required: true, options: [
+              { name: 'Tipo de evento', type: 'select', placeholder: '', required: true, options: [
                 { value: '', label: 'Tipo de evento:' },
                 { value: 'Aniversário', label: 'Aniversário' },
                 { value: 'Aniversário debutante', label: 'Aniversário debutante' },
@@ -75,9 +76,10 @@ import '../styles/bio.css';
                 { value: 'Workshops, Conferências e Seminários', label: 'Workshops, Conferências e Seminários' },
                 { value: 'Outros', label: 'Outros' }
               ] },
-              { name: 'data', type: 'text', placeholder: 'Data do Evento', required: true },
-              { name: 'convidados', type: 'number', placeholder: 'N° de Pessoas', required: true },
-              { name: 'mensagem', type: 'textarea', placeholder: 'Detalhes adicionais: (Não obrigatório)', required: false }
+              { name: 'Data do evento', type: 'text', placeholder: 'Data do Evento', required: true },
+              { name: 'Convidados', type: 'number', placeholder: 'N° de Pessoas', required: true },
+              { name: 'Mensagem', type: 'textarea', placeholder: 'Detalhes adicionais: (Não obrigatório)', required: false },
+              { name: 'Fonte', type: 'hidden', value: 'Landing page/bio' }
             ]}
           />
         </div>
@@ -108,7 +110,7 @@ import '../styles/bio.css';
   <script is:inline>
     document.addEventListener('DOMContentLoaded', () => {
       const initFlatpickr = () => {
-        const dataInput = document.querySelector('input[name="data"]');
+        const dataInput = document.querySelector('input[name="Data do evento"]');
         if (dataInput && window.flatpickr && !dataInput._flatpickr) {
           window.flatpickr(dataInput, {
             disableMobile: true,
@@ -129,7 +131,29 @@ import '../styles/bio.css';
         }
       };
 
+      const initPhoneMask = () => {
+        const phoneInput = document.querySelector('input[name="WhatsApp"]');
+        if (phoneInput) {
+          phoneInput.addEventListener('input', (e) => {
+            let value = (e.target as HTMLInputElement).value.replace(/\D/g, '');
+            if (value.length > 11) value = value.slice(0, 11);
+
+            if (value.length > 10) {
+              value = value.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
+            } else if (value.length > 6) {
+              value = value.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, '($1) $2-$3');
+            } else if (value.length > 2) {
+              value = value.replace(/^(\d{2})(\d{0,5})/, '($1) $2');
+            } else if (value.length > 0) {
+              value = value.replace(/^(\d*)/, '($1');
+            }
+            (e.target as HTMLInputElement).value = value;
+          });
+        }
+      };
+
       initFlatpickr();
+      initPhoneMask();
 
       const disableSpellcheck = () => {
         document.querySelectorAll('input, textarea').forEach(el => {
@@ -139,9 +163,10 @@ import '../styles/bio.css';
       };
       disableSpellcheck();
 
-      // Observador para remontar se houver mutações (ex: carregamento dinâmico ou alterações no DOM)
+      // Observador para remontar se houver mutações
       const observer = new MutationObserver(() => {
         initFlatpickr();
+        initPhoneMask();
         disableSpellcheck();
       });
       observer.observe(document.body, { childList: true, subtree: true });

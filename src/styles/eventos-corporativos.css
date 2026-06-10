@@ -1,0 +1,1141 @@
+/* ==========================================================================
+   CSS Scoped — /eventos-corporativos (Naturalle Eventos)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Sora:wght@100..800&display=swap');
+
+/* --- 1. Fontes Customizadas --- */
+@font-face {
+  font-family: 'Beyond Infinity';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url('/fonts/Beyond-Infinity-Atualizada.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Bebas';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url('/fonts/bebas-neue-pro-expanded-bold.ttf') format('truetype');
+}
+
+/* --- 2. Container Principal --- */
+.corporativos-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  overflow-x: hidden;
+  color: #333333;
+}
+
+/* Text Accent (Handwriting Font) */
+.accent-text {
+  font-family: 'Beyond Infinity', cursive, sans-serif;
+  font-weight: 400;
+  color: #C35125;
+  text-transform: none;
+  display: block;
+  margin-top: 5px;
+  line-height: 1.1;
+}
+
+/* --- 3. Seção 1: Hero / Header --- */
+.corporativos-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('../assets/images/55164521228_39e7846ed0_o_resultado.avif') no-repeat center center / cover;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.corporativos-hero .hero-inner {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.corporativos-hero .logo-wrapper {
+  max-width: 200px;
+  width: 100%;
+}
+
+.corporativos-hero .logo {
+  width: 100%;
+  height: auto;
+}
+
+.corporativos-hero .hero-content {
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.corporativos-hero .hero-subtitle {
+  font-family: 'Beyond Infinity', cursive, sans-serif;
+  font-size: 60px;
+  color: #C35125;
+  line-height: 1.1;
+  text-transform: none;
+}
+
+.corporativos-hero .hero-title {
+  font-family: 'Bebas', sans-serif;
+  font-size: 64px;
+  font-weight: 400;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  line-height: 1.1;
+  letter-spacing: 0.5px;
+}
+
+.corporativos-hero .hero-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: #FFFFFF;
+  line-height: 1.6;
+}
+
+.corporativos-hero .hero-btn {
+  display: inline-block;
+  background-color: transparent;
+  color: #FFFFFF;
+  border: 2px solid #FFFFFF;
+  padding: 14px 36px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 80px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.corporativos-hero .hero-btn:hover {
+  background-color: #FFFFFF;
+  color: #01312F;
+}
+
+/* --- 4. Seção 2: Seja bem-vindo --- */
+.corporativos-welcome {
+  background-color: #01312F;
+  padding: 100px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.corporativos-welcome::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../assets/images/naturalle-eventos-pattern.avif') no-repeat center center / cover;
+  opacity: 0.02;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.corporativos-welcome .welcome-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  z-index: 2;
+}
+
+.corporativos-welcome .welcome-title {
+  font-family: 'Bebas', sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.corporativos-welcome .welcome-title .accent-text {
+  font-size: 64px;
+  margin-top: 5px;
+  line-height: 1.1;
+  display: block;
+}
+
+.corporativos-welcome .welcome-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: #CBD5E1;
+  line-height: 1.8;
+}
+
+/* --- 5. Seção 3 & 6: Spacers Decorativos --- */
+.corporativos-spacer-section {
+  min-height: 400px;
+  position: relative;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (min-width: 1025px) {
+  .corporativos-spacer-section {
+    background-attachment: fixed;
+  }
+}
+
+.welcome-spacer {
+  background-image: url('../assets/images/IMG-20251106-WA0067.avif');
+}
+
+.salao-spacer {
+  background-image: url('../assets/images/55164600089_e1bd183584_o_resultado.avif');
+}
+
+/* --- 6. Seção 4: Eventos que pedem um espaço como este --- */
+.corporativos-features-types {
+  background-color: #FFFFFF;
+  position: relative;
+  padding: 100px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.corporativos-features-types::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../assets/images/naturalle-eventos-pattern.avif') no-repeat center center / cover;
+  opacity: 1;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.features-types-header {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  margin-bottom: 50px;
+}
+
+.features-types-title {
+  font-family: 'Bebas', sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  color: #01312F;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.features-types-title .accent-text {
+  font-size: 64px;
+  margin-top: 1px;
+  line-height: 1.1;
+}
+
+.features-types-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: #475569;
+  line-height: 1.6;
+  margin-top: 8px;
+}
+
+.features-types-grid {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1140px;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.features-types-grid .type-item {
+  flex: 1 1 200px;
+  background-color: #C35125;
+  border-radius: 4px;
+  padding: 18px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.features-types-grid .type-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.features-types-grid .type-icon-wrapper {
+  width: 22px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.features-types-grid .type-icon-wrapper svg {
+  width: 100%;
+  height: 100%;
+}
+
+.features-types-grid .type-icon-wrapper svg path {
+  fill: #FFFFFF !important;
+}
+
+.features-types-grid .type-item-title {
+  font-family: 'Bebas', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+  margin: 0;
+}
+
+/* --- 7. Seção 5: Um ambiente que renova o time --- */
+.corporativos-ambiente-section {
+  background-color: #01312F;
+  padding: 100px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.corporativos-ambiente-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../assets/images/naturalle-eventos-pattern.avif') no-repeat center center / cover;
+  opacity: 0.02;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ambiente-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  z-index: 2;
+}
+
+.ambiente-title {
+  font-family: 'Bebas', sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.ambiente-title .accent-text {
+  font-size: 64px;
+  margin-top: 1px;
+  line-height: 1.1;
+}
+
+.ambiente-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: #CBD5E1;
+  line-height: 1.8;
+}
+
+/* --- 8. Seção 7: Salão Rústico --- */
+.corporativos-salao-section {
+  background-color: #FFFFFF;
+  position: relative;
+  padding: 100px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.corporativos-salao-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../assets/images/naturalle-eventos-pattern.avif') no-repeat center center / cover;
+  opacity: 1;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.salao-header {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 20px;
+  margin-bottom: 50px;
+}
+
+.salao-title {
+  font-family: 'Bebas', sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  color: #01312F;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.salao-title .accent-text {
+  font-size: 64px;
+  margin-top: 5px;
+  line-height: 1.1;
+}
+
+.salao-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: #475569;
+  line-height: 1.6;
+  margin-top: 8px;
+}
+
+.salao-photo-grid {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+}
+
+.salao-photo-grid .photo-item {
+  width: 100%;
+  aspect-ratio: 9/16;
+  overflow: hidden;
+}
+
+.salao-photo-grid .photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.salao-photo-grid .photo-item:hover img {
+  transform: scale(1.05);
+}
+
+/* --- 9. Seção 8: Gastronomia personalizada --- */
+.corporativos-gastronomia-section {
+  background-color: #C35125;
+  position: relative;
+  padding: 100px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.corporativos-gastronomia-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../assets/images/naturalle-eventos-pattern.avif') no-repeat center center / cover;
+  opacity: 0.09;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.gastronomia-header {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 20px;
+  margin-bottom: 50px;
+}
+
+.gastronomia-title {
+  font-family: 'Bebas', sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.gastronomia-title .accent-text {
+  font-size: 64px;
+  color: #01312F;
+  margin-top: 1px;
+  line-height: 1.1;
+}
+
+.gastronomia-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: #FFFFFF;
+  line-height: 1.6;
+  margin-top: 8px;
+}
+
+.gastronomia-photo-grid {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+.gastronomia-photo-grid .photo-item {
+  width: 100%;
+  aspect-ratio: 9/16;
+  overflow: hidden;
+}
+
+.gastronomia-photo-grid .photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.gastronomia-photo-grid .photo-item:hover img {
+  transform: scale(1.05);
+}
+
+/* --- 10. Seção 9: Diferenciais --- */
+.corporativos-diferenciais-section {
+  background-color: #FFFFFF;
+  position: relative;
+  padding: 100px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.corporativos-diferenciais-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../assets/images/naturalle-eventos-pattern.avif') no-repeat center center / cover;
+  opacity: 1;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.diferenciais-header {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  margin-bottom: 60px;
+}
+
+.diferenciais-title {
+  font-family: 'Bebas', sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  color: #01312F;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.diferenciais-title .accent-text {
+  font-size: 64px;
+  margin-top: 1px;
+  line-height: 1.1;
+}
+
+.diferenciais-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: #475569;
+  line-height: 1.6;
+  margin-top: 8px;
+}
+
+.diferenciais-grid {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1140px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px 40px;
+}
+
+.diferenciais-grid .diferencial-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.diferenciais-grid .diferencial-icon-wrapper {
+  color: #C35125;
+  font-size: 48px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.diferenciais-grid .diferencial-item-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #C35125;
+  letter-spacing: 0.5px;
+}
+
+/* --- 11. Seção 10: Contato (Formulário) --- */
+.corporativos-contact-section {
+  background-color: #01312F;
+  position: relative;
+  padding: 100px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.corporativos-contact-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../assets/images/naturalle-eventos-pattern.avif') no-repeat center center / cover;
+  opacity: 0.02;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.corporativos-contact-section .contact-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1140px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.corporativos-contact-section .contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.corporativos-contact-section .contact-title {
+  font-family: 'Bebas', sans-serif;
+  font-size: 56px;
+  font-weight: 400;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.corporativos-contact-section .contact-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  color: #CBD5E1;
+  line-height: 1.8;
+}
+
+/* Black Card Form Theme */
+.corporativos-contact-section .contact-form-card {
+  background-color: #000000 !important;
+  border: none !important;
+  padding: 50px 40px !important;
+  border-radius: 0px !important;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4) !important;
+}
+
+.corporativos-contact-section .contact-form-card .form-title {
+  font-family: 'Bebas', sans-serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  line-height: 1.2;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+  padding-bottom: 20px !important;
+}
+
+/* Customizações do LeadForm */
+.corporativos-contact-section .contact-form-card .lead-form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.corporativos-contact-section .contact-form-card .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hide labels to keep transparent input placeholders looking clean */
+.corporativos-contact-section .contact-form-card .form-group label {
+  display: none !important;
+}
+
+.corporativos-contact-section .contact-form-card .form-input,
+.corporativos-contact-section .contact-form-card .form-textarea {
+  width: 100% !important;
+  background-color: transparent !important;
+  border-width: 0px 0px 1px 0px !important;
+  border-style: solid !important;
+  border-color: #858474 !important;
+  border-radius: 0px !important;
+  padding: 12px 0px !important;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px !important;
+  color: #FFFFFF !important;
+  outline: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.corporativos-contact-section .contact-form-card .form-select {
+  width: 100% !important;
+  background-color: transparent !important;
+  border-width: 0px 0px 1px 0px !important;
+  border-style: solid !important;
+  border-color: #858474 !important;
+  border-radius: 0px !important;
+  padding: 12px 0px !important;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px !important;
+  color: #FFFFFF !important;
+  outline: none !important;
+  transition: all 0.3s ease !important;
+  appearance: none !important;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 0px center !important;
+  background-size: 16px !important;
+}
+
+.corporativos-contact-section .contact-form-card .form-select option {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+}
+
+.corporativos-contact-section .contact-form-card .form-input::placeholder,
+.corporativos-contact-section .contact-form-card .form-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+  opacity: 1 !important;
+}
+
+.corporativos-contact-section .contact-form-card .form-input:focus,
+.corporativos-contact-section .contact-form-card .form-select:focus,
+.corporativos-contact-section .contact-form-card .form-textarea:focus {
+  border-color: #54CA6E !important;
+  background-color: transparent !important;
+}
+
+.corporativos-contact-section .contact-form-card button[type="submit"],
+.corporativos-contact-section .contact-form-card .btn-primary {
+  width: 100% !important;
+  background-color: #54CA6E !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  padding: 16px 0px !important;
+  border-radius: 80px !important;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  transition: background-color 0.3s ease !important;
+  margin-top: 15px !important;
+  display: block !important;
+}
+
+.corporativos-contact-section .contact-form-card button[type="submit"]:hover,
+.corporativos-contact-section .contact-form-card .btn-primary:hover {
+  background-color: #43b55c !important;
+}
+
+.corporativos-contact-section .contact-form-card .form-footer {
+  display: none !important;
+}
+
+/* WhatsApp and Email side-by-side row */
+.corporativos-contact-section .contact-form-card .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Success state styling */
+.corporativos-contact-section .contact-form-card .form-success-state {
+  color: #FFFFFF !important;
+}
+
+.corporativos-contact-section .contact-form-card .form-success-title {
+  color: #FFFFFF !important;
+  font-family: 'Bebas', sans-serif !important;
+  font-size: 24px !important;
+}
+
+.corporativos-contact-section .contact-form-card .form-success-text {
+  color: #CBD5E1 !important;
+}
+
+.corporativos-contact-section .contact-form-card .form-success-icon {
+  background-color: #54CA6E !important;
+}
+
+/* --- 12. Seção 11: Rodapé (Footer) --- */
+.corporativos-footer {
+  background-color: #232323;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.corporativos-footer .footer-container {
+  width: 100%;
+  max-width: 1140px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.corporativos-footer .footer-copy {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  color: #94A3B8;
+}
+
+.corporativos-footer .footer-logo-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.corporativos-footer .footer-logo-main {
+  height: 40px;
+  width: auto;
+}
+
+.corporativos-footer .footer-developer-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.corporativos-footer .footer-developer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  color: #94A3B8;
+  text-decoration: none;
+}
+
+.corporativos-footer .footer-logo-dev {
+  height: 18px;
+  width: auto;
+}
+
+.gsap-marquee-wrapper {
+  display: contents;
+}
+
+/* --- 13. Media Queries (Responsividade) --- */
+@media (max-width: 991px) {
+  .corporativos-contact-section .contact-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .diferenciais-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+
+  /* Hero */
+  .corporativos-hero {
+    min-height: 80vh;
+    padding: 60px 20px;
+  }
+
+  .corporativos-hero .hero-subtitle {
+    font-size: 38px;
+  }
+
+  .corporativos-hero .hero-title {
+    font-size: 36px;
+  }
+
+  .corporativos-hero .hero-desc {
+    font-size: 16px;
+  }
+
+  .corporativos-hero .hero-btn {
+    padding: 12px 30px;
+    font-size: 14px;
+  }
+
+  /* Seja bem-vindo */
+  .corporativos-welcome {
+    padding: 60px 20px;
+  }
+
+  .corporativos-welcome .welcome-title {
+    font-size: 30px;
+  }
+
+  .corporativos-welcome .welcome-title .accent-text {
+    font-size: 56px;
+    margin-top: 5px;
+    line-height: 1.1;
+  }
+
+  /* Spacers */
+  .corporativos-spacer-section {
+    min-height: 250px;
+  }
+
+  /* Features/Types */
+  .corporativos-features-types {
+    padding: 60px 20px;
+  }
+
+  .features-types-title {
+    font-size: 30px;
+  }
+
+  .features-types-title .accent-text {
+    font-size: 56px;
+    margin-top: 1px;
+    line-height: 1.1;
+  }
+
+  .features-types-grid {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .features-types-grid .type-item {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  /* Ambiente */
+  .corporativos-ambiente-section {
+    padding: 60px 20px;
+  }
+
+  .ambiente-title {
+    font-size: 30px;
+  }
+
+  .ambiente-title .accent-text {
+    font-size: 56px;
+    margin-top: 1px;
+    line-height: 1.1;
+  }
+
+  /* Salão Rústico */
+  .corporativos-salao-section {
+    padding: 60px 0 0 0;
+  }
+
+  .salao-title {
+    font-size: 30px;
+  }
+
+  .salao-title .accent-text {
+    font-size: 56px;
+  }
+
+  .gsap-marquee-container.salao-photo-grid {
+    display: block !important;
+    overflow: hidden !important;
+    width: 100vw !important;
+    position: relative !important;
+    cursor: grab;
+  }
+  .gsap-marquee-container.salao-photo-grid:active {
+    cursor: grabbing;
+  }
+  .gsap-marquee-container.salao-photo-grid .gsap-marquee-wrapper {
+    display: flex !important;
+    width: max-content !important;
+  }
+  .gsap-marquee-container.salao-photo-grid .photo-item {
+    flex-shrink: 0 !important;
+    width: 100vw !important;
+    aspect-ratio: 1/1 !important;
+    overflow: hidden !important;
+  }
+  .gsap-marquee-container.salao-photo-grid .photo-item img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+
+  /* Gastronomia */
+  .corporativos-gastronomia-section {
+    padding: 60px 0 0 0;
+  }
+
+  .gastronomia-title {
+    font-size: 30px;
+  }
+
+  .gastronomia-title .accent-text {
+    font-size: 56px;
+    margin-top: 1px;
+    line-height: 1.1;
+  }
+
+  .gsap-marquee-container.gastronomia-photo-grid {
+    display: block !important;
+    overflow: hidden !important;
+    width: 100vw !important;
+    position: relative !important;
+    cursor: grab;
+  }
+  .gsap-marquee-container.gastronomia-photo-grid:active {
+    cursor: grabbing;
+  }
+  .gsap-marquee-container.gastronomia-photo-grid .gsap-marquee-wrapper {
+    display: flex !important;
+    width: max-content !important;
+  }
+  .gsap-marquee-container.gastronomia-photo-grid .photo-item {
+    flex-shrink: 0 !important;
+    width: 100vw !important;
+    aspect-ratio: 1/1 !important;
+    overflow: hidden !important;
+  }
+  .gsap-marquee-container.gastronomia-photo-grid .photo-item img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+
+  /* Diferenciais */
+  .corporativos-diferenciais-section {
+    padding: 60px 20px;
+  }
+
+  .diferenciais-title {
+    font-size: 30px;
+  }
+
+  .diferenciais-title .accent-text {
+    font-size: 56px;
+    margin-top: 1px;
+    line-height: 1.1;
+  }
+
+  .diferenciais-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  /* Contact */
+  .corporativos-contact-section {
+    padding: 60px 20px;
+  }
+
+  .corporativos-contact-section .contact-title {
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .corporativos-contact-section .contact-desc {
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .corporativos-contact-section .contact-form-card {
+    padding: 30px 20px !important;
+  }
+
+  .corporativos-contact-section .contact-form-card .form-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .corporativos-contact-section .contact-form-card .form-title {
+    font-size: 20px;
+  }
+
+  /* Footer */
+  .corporativos-footer {
+    padding: 30px 20px;
+  }
+
+  .corporativos-footer .footer-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .corporativos-footer .footer-logo-center {
+    order: 2;
+  }
+
+  .corporativos-footer .footer-copy {
+    order: 1;
+    font-size: 13px;
+  }
+
+  .corporativos-footer .footer-developer-wrapper {
+    order: 3;
+    justify-content: center;
+  }
+}

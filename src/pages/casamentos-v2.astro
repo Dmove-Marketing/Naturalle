@@ -10,21 +10,29 @@ import '../styles/casamentos-v2.css';
 
 <Base
   title="Casamentos ao Ar Livre em Goiânia — Naturalle Eventos"
+  description="Espaço de casamentos ao ar livre em Goiânia. O Naturalle reúne ambiente integrado à natureza, buffet e organização em uma única experiência."
   ogImage="/images/og-casamentos-v2.jpg"
   canonical="https://eventos.naturalleeventos.com/casamentos-v2/"
 >
   <Fragment slot="head">
-    <!-- Icon Fonts CDNs -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@icon/themify-icons/themify-icons.css" />
-    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css" />
-    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
+    <!-- Icon Fonts CDNs (Carregamento assíncrono para melhorar performance) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@icon/themify-icons/themify-icons.css" media="print" onload="this.media='all'" />
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css" media="print" onload="this.media='all'" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css" media="print" onload="this.media='all'" />
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" media="print" onload="this.media='all'" />
     
     <!-- Flatpickr CSS CDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" media="print" onload="this.media='all'" />
     <!-- Flatpickr Script CDNs -->
     <script is:inline src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script is:inline src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
+    <noscript>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@icon/themify-icons/themify-icons.css" />
+      <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css" />
+      <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+    </noscript>
   </Fragment>
 
   <main class="casamentos-container">
@@ -36,7 +44,7 @@ import '../styles/casamentos-v2.css';
         </div>
         <div class="hero-content">
           <span class="hero-subtitle">Espaço de eventos em Goiânia</span>
-          <h1 class="hero-title">Aqui, seu casamento ao ar livre se torna uma experiência completa e inesquecível.</h1>
+          <h1 class="hero-title">Aqui, seu casamento ao ar livre <br>se torna uma experiência <br>completa e inesquecível.</h1>
           <p class="hero-desc">Espaço, gastronomia e estrutura pronta para você viver seu grande dia sem preocupações.</p>
           <a href="#contato" class="hero-btn">Solicite um orçamento</a>
         </div>
@@ -55,7 +63,7 @@ import '../styles/casamentos-v2.css';
     <div class="casamentos-spacer-section"></div>
 
     <!-- Seção 4: Galeria Jardim (Marquee) -->
-    <section class="casamentos-gallery-section">
+    <section class="casamentos-gallery-section gallery-jardim">
       <div class="gallery-header">
         <h2 class="gallery-title">em nosso jardim seu <span class="accent-text">sonho ganha vida</span></h2>
         <p class="gallery-desc">Área externa ampla, perfeita para tornar sua cerimônia ainda mais especial e integrada aos outros momentos do evento.</p>
@@ -72,7 +80,7 @@ import '../styles/casamentos-v2.css';
     </section>
 
     <!-- Seção 5: Galeria Recepção (Marquee) -->
-    <section class="casamentos-gallery-section">
+    <section class="casamentos-gallery-section gallery-recepcao">
       <div class="gallery-header">
         <h2 class="gallery-title">Celebração e recepção <span class="accent-text">no mesmo lugar</span></h2>
         <p class="gallery-desc">Após a cerimônia, seus convidados seguem para um espaço aconchegante, ideal para receber até 200 convidados.</p>
@@ -89,7 +97,7 @@ import '../styles/casamentos-v2.css';
     </section>
 
     <!-- Seção 6: Galeria Gastronomia (Marquee) -->
-    <section class="casamentos-gallery-section">
+    <section class="casamentos-gallery-section gallery-gastronomia">
       <div class="gallery-header">
         <h2 class="gallery-title">Gastronomia <span class="accent-text">personalizada</span></h2>
         <p class="gallery-desc">Sabores e combinações pensados especialmente para o seu evento.</p>
@@ -117,37 +125,37 @@ import '../styles/casamentos-v2.css';
           <div class="feature-icon-wrapper">
             <i class="ti-location-pin"></i>
           </div>
-          <h3 class="feature-item-title">Localização Privilegiada</h3>
+          <p class="feature-item-title"><strong>Localização Privilegiada</strong></p>
         </div>
         <div class="feature-item">
           <div class="feature-icon-wrapper">
             <i class="lnr lnr-car"></i>
           </div>
-          <h3 class="feature-item-title">Estacionamento</h3>
+          <p class="feature-item-title"><strong>Estacionamento</strong></p>
         </div>
         <div class="feature-item">
           <div class="feature-icon-wrapper">
             <i class="lnr lnr-dinner"></i>
           </div>
-          <h3 class="feature-item-title">Cozinha Industrial</h3>
+          <p class="feature-item-title"><strong>Cozinha Industrial</strong></p>
         </div>
         <div class="feature-item">
           <div class="feature-icon-wrapper">
             <i class="mdi mdi-star-circle-outline"></i>
           </div>
-          <h3 class="feature-item-title">Exclusividade (1 evento por dia)</h3>
+          <p class="feature-item-title"><strong>Exclusividade (1 evento por dia)</strong></p>
         </div>
         <div class="feature-item">
           <div class="feature-icon-wrapper">
             <i class="mdi mdi-table-chair"></i>
           </div>
-          <h3 class="feature-item-title">Mobiliário Próprio</h3>
+          <p class="feature-item-title"><strong>Mobiliário Próprio</strong></p>
         </div>
         <div class="feature-item">
           <div class="feature-icon-wrapper">
             <i class="las la-people-carry"></i>
           </div>
-          <h3 class="feature-item-title">Equipe Operacional</h3>
+          <p class="feature-item-title"><strong>Equipe Operacional</strong></p>
         </div>
       </div>
     </section>
@@ -186,31 +194,37 @@ import '../styles/casamentos-v2.css';
       <div class="contact-container">
         <div class="contact-info">
           <h2 class="contact-title">Realize seu sonho no espaço de eventos mais completo de Goiânia!</h2>
-          <p class="contact-desc">Basta preencher o formulário que entraremos em contato com você para apresentar as melhores opções para o seu grande dia.</p>
+          <p class="contact-desc">Basta preencher o formulário que entraremos em contato com você.</p>
         </div>
         <div class="contact-form-card">
           <h3 class="form-title">Preencha seus dados e receba um orçamento personalizado.</h3>
           <LeadForm
-            formId="lead-form"
+            formId="form_casamentos"
             project={config.project_slug}
             submitUrl={config.forms['lead-form'].webhooks[0]}
             redirectUrl={config.forms['lead-form'].redirect_on_success}
             submitText="ENVIAR SOLICITAÇÃO"
             honeypot
             fields={[
-              { name: 'form_fields[nome]', type: 'text', placeholder: 'Nome', required: true },
-              { name: 'form_fields[telefone]', type: 'text', placeholder: 'WhatsApp', required: true },
-              { name: 'form_fields[email]', type: 'email', placeholder: 'E-mail', required: true },
-              { name: 'form_fields[data]', type: 'text', placeholder: 'Data do Evento', required: true },
-              { name: 'form_fields[convidados]', type: 'number', placeholder: 'N° de Pessoas', required: true },
-              { name: 'form_fields[mensagem]', type: 'textarea', placeholder: 'Detalhes adicionais: (Não obrigatório)', required: false },
-              { name: 'form_fields[tipo]', type: 'select', placeholder: '', required: true, options: [
+              { name: 'Nome', type: 'text', placeholder: 'Nome', required: true },
+              {
+                type: 'row',
+                fields: [
+                  { name: 'WhatsApp', type: 'text', placeholder: 'WhatsApp', required: true },
+                  { name: 'E-mail', type: 'email', placeholder: 'E-mail', required: true }
+                ]
+              },
+              { name: 'Tipo de evento', type: 'select', placeholder: '', required: true, options: [
                 { value: '', label: 'Tipo de evento' },
                 { value: 'Bodas', label: 'Bodas' },
                 { value: 'Casamento', label: 'Casamento' },
                 { value: 'Confraternização social', label: 'Confraternização social' },
                 { value: 'Outros', label: 'Outros' }
-              ] }
+              ] },
+              { name: 'Data do evento', type: 'text', placeholder: 'Data do Evento', required: true },
+              { name: 'Convidados', type: 'number', placeholder: 'N° de Pessoas', required: true },
+              { name: 'Mensagem', type: 'textarea', placeholder: 'Detalhes adicionais: (Não obrigatório)', required: false },
+              { name: 'Fonte', type: 'hidden', value: 'Landing page/casamentos' }
             ]}
           />
         </div>
@@ -221,12 +235,14 @@ import '../styles/casamentos-v2.css';
     <footer class="casamentos-footer">
       <div class="footer-container">
         <div class="footer-copy">
-          <p>© 2026 - Naturalle Eventos - Todos os direitos reservados.</p>
+          <p>© 2026 - Naturalle Eventos - Todos os direitos reservados</p>
         </div>
-        <div class="footer-logos">
+        <div class="footer-logo-center">
           <Img src="LOGO-BRANCA.avif" alt="Naturalle Eventos" width={200} height={81} class="footer-logo-main" />
+        </div>
+        <div class="footer-developer-wrapper">
           <a href="http://dmove.com.br" target="_blank" rel="noopener noreferrer" class="footer-developer">
-            <span>Desenvolvido por:</span>
+            <span>Desenvolvido por</span>
             <Img src="Versao-Principal-Negativo-scaled-e1750426923582.avif" alt="Dmove" width={100} height={25} class="footer-logo-dev" />
           </a>
         </div>
@@ -234,24 +250,50 @@ import '../styles/casamentos-v2.css';
     </footer>
   </main>
 </Base>
-
 <script>
   import { gsap } from 'gsap';
 
   document.addEventListener('DOMContentLoaded', () => {
     // Inicialização do Flatpickr
-    if (window.flatpickr) {
-      window.flatpickr('input[name="form_fields[data]"]', {
-        dateFormat: 'd/m/Y',
-        locale: 'pt',
-        disableMobile: true
-      });
-    }
+    const initFlatpickr = () => {
+      const dataInput = document.querySelector('input[name="Data do evento"]');
+      if (dataInput && window.flatpickr && !dataInput._flatpickr) {
+        window.flatpickr(dataInput, {
+          dateFormat: 'd/m/Y',
+          locale: 'pt',
+          disableMobile: true
+        });
+      }
+    };
+
+    const initPhoneMask = () => {
+      const phoneInput = document.querySelector('input[name="WhatsApp"]');
+      if (phoneInput) {
+        phoneInput.addEventListener('input', (e) => {
+          let value = (e.target as HTMLInputElement).value.replace(/\D/g, '');
+          if (value.length > 11) value = value.slice(0, 11);
+
+          if (value.length > 10) {
+            value = value.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
+          } else if (value.length > 6) {
+            value = value.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, '($1) $2-$3');
+          } else if (value.length > 2) {
+            value = value.replace(/^(\d{2})(\d{0,5})/, '($1) $2');
+          } else if (value.length > 0) {
+            value = value.replace(/^(\d*)/, '($1');
+          }
+          (e.target as HTMLInputElement).value = value;
+        });
+      }
+    };
+
+    initFlatpickr();
+    initPhoneMask();
 
     // Marquees GSAP
     const containers = document.querySelectorAll('.gsap-marquee-container');
     containers.forEach(container => {
-      const wrapper = container.querySelector('.gsap-marquee-wrapper');
+      const wrapper = container.querySelector('.gsap-marquee-wrapper') as HTMLElement;
       if (!wrapper) return;
 
       // Clona as imagens duas vezes para garantir loop contínuo perfeito
@@ -278,6 +320,7 @@ import '../styles/casamentos-v2.css';
           ease: 'none',
           repeat: -1
         });
+        container._marqueeTween = marqueeTween;
       };
 
       startMarquee();

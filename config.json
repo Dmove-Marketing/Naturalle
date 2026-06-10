@@ -10,7 +10,7 @@
   "whatsapp": {
     "phone": "5562995389349",
     "display_name": "Naturalle Eventos",
-    "avatar": "/images/naturalle-logo-icone.svg",
+    "avatar": "/images/naturalle-logo-preta.png",
     "enabled": true
   },
   "forms": {
@@ -18,7 +18,7 @@
       "id": "lead-form",
       "redirect_on_success": "",
       "webhooks": [
-        "https://n8n.dmove.com.br/webhook/naturalle-eventos"
+        "https://server3n8n.dmove.com.br/webhook/naturalle-eventos"
       ],
       "fields_required": [
         "nome",
@@ -29,7 +29,7 @@
   },
   "deploy": {
     "user": "root",
-    "server": "",
+    "server": "157.173.197.116",
     "remote_path": "/var/www/eventos.naturalleeventos.com"
   },
   "meta": {
