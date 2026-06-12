@@ -49,7 +49,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('../assets/images/55164521228_39e7846ed0_o_resultado.avif') no-repeat center center / cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('/images/55164521228_39e7846ed0_o_resultado.avif') no-repeat center center / cover;
   padding: 80px 20px;
   text-align: center;
 }

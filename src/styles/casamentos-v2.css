@@ -49,7 +49,7 @@
   display: flex;
   align-items: center;
   position: relative;
-  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('../assets/images/PTF-155-scaled.avif') no-repeat center center / cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('/images/PTF-155-scaled.avif') no-repeat center center / cover;
   padding: 40px 20px;
 }
 
