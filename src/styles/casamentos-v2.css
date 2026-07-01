@@ -506,6 +506,10 @@
   transform: scale(1.05);
 }
 
+.testimonials-gallery .gallery-row:nth-child(3) .gallery-item:nth-child(2) img {
+  object-position: left bottom !important;
+}
+
 /* --- 9. Seção 9: Contato (Contact Form) --- */
 .casamentos-contact-section {
   background-color: #01312F;
