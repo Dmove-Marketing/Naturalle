@@ -135,7 +135,7 @@ import '../styles/bio.css';
         const phoneInput = document.querySelector('input[name="WhatsApp"]');
         if (phoneInput) {
           phoneInput.addEventListener('input', (e) => {
-            let value = (e.target as HTMLInputElement).value.replace(/\D/g, '');
+            let value = e.target.value.replace(/\D/g, '');
             if (value.length > 11) value = value.slice(0, 11);
 
             if (value.length > 10) {
@@ -147,7 +147,7 @@ import '../styles/bio.css';
             } else if (value.length > 0) {
               value = value.replace(/^(\d*)/, '($1');
             }
-            (e.target as HTMLInputElement).value = value;
+            e.target.value = value;
           });
         }
       };
